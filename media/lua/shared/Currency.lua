@@ -13,7 +13,7 @@ Currency.UseSpecialCoin = true
 Currency.Coins = Currency.Coins or {}
 Currency.Coins[Currency.SpecialCoin] = {value = 0, specialCoin = true}
 Currency.Coins[Currency.BaseCoin] = {value = 1}
-Currency.Coins["Base.SilverCoin"] = {value = 250}
+Currency.Coins["Base.SilverCoin"] = {value = 100}
 Currency.Coins["Base.GoldCoin"] = {value = 500}
 
 Currency.CoinsTexture = {

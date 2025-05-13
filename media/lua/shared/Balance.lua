@@ -29,3 +29,33 @@ function Balance.getAccountsList()
     end
     return accounts
 end
+
+-- Función para reiniciar el balance de un usuario específico
+function Balance.resetUserBalance(username)
+    local coinBalance = ModData.get("CoinBalance") or {}
+    if coinBalance[username] then
+        coinBalance[username] = {
+            coin = 0,
+            specialCoin = 0
+        }
+        ModData.add("CoinBalance", coinBalance)
+        return true
+    end
+    return false
+end
+
+-- Función para eliminar completamente la cuenta de un usuario
+function Balance.removeUserAccount(username)
+    local coinBalance = ModData.get("CoinBalance") or {}
+    if coinBalance[username] then
+        coinBalance[username] = nil
+        ModData.add("CoinBalance", coinBalance)
+        return true
+    end
+    return false
+end
+
+-- Función para reiniciar TODOS los balances
+function Balance.resetAllBalances()
+    ModData.add("CoinBalance", {})
+end
